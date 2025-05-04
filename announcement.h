@@ -15,4 +15,4 @@ public:
     string getMessage() const;
 };
 
-#endif // ANNOUNCEMENT_H
+#endif 

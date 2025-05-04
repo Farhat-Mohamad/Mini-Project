@@ -16,9 +16,9 @@ int main() {
     dm.loadAll();   
 
     while (true) {
-        cout << "\n=== Yeksan University ===\n"
-             << "1. Login\n"
-             << "2. Sign Up\n"
+        cout << "\n>>> Yeksan System <<<\n"
+             << "1_ Login\n"
+             << "2_ Sign Up\n"
              << "Choose an option: ";
         int choice; 
         cin >> choice;
@@ -50,7 +50,7 @@ int main() {
         }
         else if (choice == 2) {
             string role, uname, pwd;
-            cout << "Role (student/teacher): "; cin >> role;
+            cout << "What are you (student/teacher): "; cin >> role;
             cout << "Username: ";  cin >> uname;
             cout << "Password: ";  cin >> pwd;
 
@@ -78,13 +78,13 @@ int main() {
 void adminMenu(shared_ptr<Admin> admin, DataManager& dm) {
     while (true) {
         cout << "\n--- Admin Menu ---\n"
-             << "1. Create User\n"
-             << "2. Update User\n"
-             << "3. Delete User\n"
-             << "4. Restore User\n"
-             << "5. View All Courses\n"
-             << "6. View Course Ratings\n"
-             << "7. Logout\n"
+             << "1_ Create User\n"
+             << "2_ Update User\n"
+             << "3_ Delete User\n"
+             << "4_ Restore User\n"
+             << "5_ View All Courses\n"
+             << "6_ View Course Ratings\n"
+             << "7_ Logout\n"
              << "Choose: ";
         int opt; cin >> opt;
         if (opt == 1) {
@@ -115,7 +115,7 @@ void adminMenu(shared_ptr<Admin> admin, DataManager& dm) {
         }
         else if (opt == 5) {
             auto& courses = dm.getCourses();
-            cout<<"--- All Courses ---\n";
+            cout<<">>> All Courses <<<\n";
             for (auto& c: courses) {
                 cout<<"ID: "<<c->getId()
                     <<" | Name: "<<c->getName()
@@ -125,7 +125,7 @@ void adminMenu(shared_ptr<Admin> admin, DataManager& dm) {
         }
         else if (opt == 6) {
             auto& courses = dm.getCourses();
-            cout<<"--- Course Ratings ---\n";
+            cout<<">>> Course Ratings <<<\n";
             for (auto& c: courses) {
                 cout<<"Course "<<c->getId()
                     <<" ("<<c->getName()<<")"
@@ -144,7 +144,7 @@ void adminMenu(shared_ptr<Admin> admin, DataManager& dm) {
 // --- TEACHER MENU ---
 void teacherMenu(shared_ptr<Teacher> teacher, DataManager& dm) {
     while (true) {
-        cout << "\n--- Teacher Menu ---\n"
+        cout << "\n>>> Teacher Menu <<<\n"
              << "1. Create Course\n"
              << "2. List My Courses & Students\n"
              << "3. Grade a Student\n"
@@ -201,26 +201,25 @@ void teacherMenu(shared_ptr<Teacher> teacher, DataManager& dm) {
     }
 }
 
-// --- STUDENT MENU ---
 void studentMenu(shared_ptr<Student> student, DataManager& dm) {
     while (true) {
-        cout << "\n--- Student Menu ---\n"
-             << "1. View Enrolled Courses\n"
-             << "2. View Available Courses\n"
-             << "3. View My Grades\n"
-             << "4. Rate a Course\n"
-             << "5. Logout\n"
+        cout << "\n>>> Student Menu <<<\n"
+             << "1_ View Enrolled Courses\n"
+             << "2_ View Available Courses\n"
+             << "3_ View My Grades\n"
+             << "4_ Rate a Course\n"
+             << "5_ Logout\n"
              << "Choose: ";
         int opt; cin >> opt;
         if (opt == 1) {
-            cout<<"--- Enrolled Courses ---\n";
+            cout<<">>> Enrolled Courses <<<\n";
             for (auto& c: dm.getCourses()) {
                 if (c->isStudentEnrolled(student->getId()))
                     cout<<"ID:"<<c->getId()<<" Name:"<<c->getName()<<"\n";
             }
         }
         else if (opt == 2) {
-            cout<<"--- Courses with Open Slots ---\n";
+            cout<<">>> Courses with Open Slots <<<\n";
             for (auto& c: dm.getCourses()) {
                 int enrolled = c->getStudentIds().size();
                 if (enrolled < 30 && !c->isStudentEnrolled(student->getId()))
