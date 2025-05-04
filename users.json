@@ -1,0 +1,30 @@
+[
+  {
+    "deleted": false,
+    "id": 1,
+    "password": "122122",
+    "type": "Teacher",
+    "username": "ali"
+  },
+  {
+    "deleted": false,
+    "id": 2,
+    "password": "555",
+    "type": "Student",
+    "username": "ahmad"
+  },
+  {
+    "deleted": false,
+    "id": 3,
+    "password": "1234",
+    "type": "Student",
+    "username": "soukayna"
+  },
+  {
+    "deleted": false,
+    "id": 4,
+    "password": "5544",
+    "type": "Teacher",
+    "username": "tala"
+  }
+]
