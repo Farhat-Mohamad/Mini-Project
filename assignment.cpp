@@ -11,6 +11,7 @@ Assignment::Assignment(int aid,const string& t,const string& d,bool)
 
 int Assignment::getId() const { return id; }
 string Assignment::getTitle() const { return title; }
+
 vector<Submission> Assignment::getSubmissions() const { return submissions; }
 
 void Assignment::setGrade(int sid, double grade) {
