@@ -10,4 +10,4 @@ public:
     int getScore() const { return score; }
 };
 
-#endif // RATING_H
+#endif 

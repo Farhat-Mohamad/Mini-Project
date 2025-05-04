@@ -24,4 +24,4 @@ public:
     double getGrade(int sid) const;
 };
 
-#endif // ASSIGNMENT_H
+#endif 

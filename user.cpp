@@ -27,7 +27,6 @@ bool User::checkPassword(const string& pwd) const { return password == pwd; }
 bool User::getDeleted() const { return isDeleted; }
 void User::setDeleted(bool d) { isDeleted = d; }
 
-// --- Admin impl ---
 Admin::Admin(const string& uname, const string& pwd) : User(uname, pwd) {}
 Admin::Admin(int uid, const string& uname, const string& pwd, bool deleted)
   : User(uid, uname, pwd, deleted) {}
@@ -92,7 +91,7 @@ void Admin::viewCourseStats(const vector<shared_ptr<Course>>& courses,
         auto& c = *cptr;
         double avgG = c.getAverageGrade();
         double avgR = c.getAverageRating();
-        // find teacher name
+
         string tname="N/A";
         for (auto& u: users)
             if (u->getId()==c.getTeacherId())
@@ -106,7 +105,6 @@ void Admin::viewCourseStats(const vector<shared_ptr<Course>>& courses,
     }
 }
 
-// --- Teacher impl ---
 Teacher::Teacher(const string& uname, const string& pwd) : User(uname,pwd) {}
 Teacher::Teacher(int uid,const string& uname,const string& pwd,bool d)
   : User(uid,uname,pwd,d) {}

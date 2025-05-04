@@ -33,7 +33,6 @@ public:
     virtual void displayInfo() const = 0;
 };
 
-// --- Admin ---
 class Admin : public User {
 public:
     Admin(const string& uname, const string& pwd);
@@ -56,7 +55,6 @@ public:
                          const vector<shared_ptr<User>>& users) const;
 };
 
-// --- Teacher (formerly Professor) ---
 class Teacher : public User {
 public:
     Teacher(const string& uname, const string& pwd);
@@ -71,7 +69,6 @@ public:
     void assignGrade(Course& course, int asgId, int stuId, double grade);
 };
 
-// --- Student ---
 class Student : public User {
 public:
     Student(const string& uname, const string& pwd);
@@ -86,4 +83,4 @@ public:
     void rateCourse(Course& course, int score);
 };
 
-#endif // USER_H
+#endif

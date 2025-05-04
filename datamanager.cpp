@@ -2,7 +2,6 @@
 #include <fstream>
 
 void DataManager::loadAll() {
-    // load users.json
     ifstream inU("users.json");
     if (inU) {
         json j; inU >> j;
@@ -20,7 +19,6 @@ void DataManager::loadAll() {
                 users.push_back(make_shared<Student>(id,un,pw,del));
         }
     }
-    // load courses.json
     ifstream inC("courses.json");
     if (inC) {
         json j; inC >> j;
@@ -69,7 +67,6 @@ void DataManager::saveAll() const {
         obj["name"] = c.getName();
         obj["teacherId"] = c.getTeacherId();
         obj["studentIds"] = cptr->isStudentEnrolled(0)? json::array() : json::array(); 
-        // -- for brevity you’d fill announcements, assignments, ratings similarly --
         jC.push_back(obj);
     }
     ofstream outC("courses.json");

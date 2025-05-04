@@ -41,4 +41,4 @@ public:
     void printStudentGrades(int sid) const;
 };
 
-#endif // COURSE_H
+#endif 

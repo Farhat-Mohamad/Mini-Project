@@ -141,7 +141,6 @@ void adminMenu(shared_ptr<Admin> admin, DataManager& dm) {
     }
 }
 
-// --- TEACHER MENU ---
 void teacherMenu(shared_ptr<Teacher> teacher, DataManager& dm) {
     while (true) {
         cout << "\n>>> Teacher Menu <<<\n"

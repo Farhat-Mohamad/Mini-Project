@@ -14,4 +14,4 @@ public:
     void setGrade(double g) { grade = g; isGraded = true; }
 };
 
-#endif // SUBMISSION_H
+#endif 
